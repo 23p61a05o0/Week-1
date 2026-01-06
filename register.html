@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Advanced Validation Form</title>
-   <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Validation Form</title>
+    <style>
     /* Basic Reset and Body Styling */
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6; /* Light gray background */
+        background-color: #f4f7f6;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -18,33 +18,30 @@
         box-sizing: border-box;
     }
     
-    /* Container Styling (The Form Card) */
+    /* Container Styling */
     .container {
-        background-color: #ffffff; /* White card background */
+        background-color: #ffffff;
         padding: 40px;
         border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 450px;
         box-sizing: border-box;
     }
     
-    /* Header Styling */
     h2 {
         text-align: center;
         color: #333;
         margin-bottom: 30px;
         font-weight: 600;
-        border-bottom: 2px solid #5D4037; /* Dark brown accent line */
+        border-bottom: 2px solid #5D4037;
         padding-bottom: 10px;
     }
     
-    /* Form Group Layout */
     .form-group {
         margin-bottom: 20px;
     }
     
-    /* Label Styling */
     label {
         display: block;
         margin-bottom: 8px;
@@ -52,7 +49,6 @@
         font-weight: 500;
     }
     
-    /* Input and Select Field Styling */
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -67,25 +63,22 @@
         transition: border-color 0.3s, box-shadow 0.3s;
         background-color: #f9f9f9;
     }
-    /*comment line!!!
-    /* Focus State */
+
     input:focus,
     select:focus {
-        border-color: #795548; /* Darker brown focus border */
+        border-color: #795548;
         box-shadow: 0 0 5px rgba(121, 85, 72, 0.3);
-        outline: none; /* Remove default outline */
+        outline: none;
         background-color: #fff;
     }
     
-    /* Error Message Styling */
     .error-message {
-        color: #d9534f; /* Red for error messages */
+        color: #d9534f;
         font-size: 14px;
         margin-top: 5px;
-        min-height: 18px; /* Maintain spacing */
+        min-height: 18px;
     }
     
-    /* Checkbox Group Styling */
     .checkbox-group {
         display: flex;
         align-items: center;
@@ -98,15 +91,10 @@
         display: inline;
     }
     
-    .checkbox-group input[type="checkbox"] {
-        width: auto;
-    }
-    
-    /* Button Styling */
     button[type="submit"] {
         width: 100%;
         padding: 12px;
-        background-color: #5D4037; /* Primary Dark Brown Color */
+        background-color: #5D4037;
         color: white;
         border: none;
         border-radius: 6px;
@@ -117,19 +105,11 @@
         font-weight: 600;
     }
     
-    /* Button Hover State */
     button[type="submit"]:hover {
-        background-color: #4E342E; /* Slightly darker on hover */
-        transform: translateY(-1px); /* Subtle lift effect */
+        background-color: #4E342E;
+        transform: translateY(-1px);
     }
     
-    /* Style for invalid/error state on inputs (if you add classes in JS) */
-    .form-group input.error,
-    .form-group select.error {
-        border-color: #d9534f;
-    }
-    
-    /* Optional: Make the select look consistent */
     select {
         -webkit-appearance: none;
         -moz-appearance: none;
@@ -138,7 +118,7 @@
         background-repeat: no-repeat;
         background-position-x: 97%;
         background-position-y: center;
-        padding-right: 30px; /* Add space for the arrow */
+        padding-right: 30px;
     }
     </style>
 </head>
@@ -152,13 +132,11 @@
                <div class="error-message" id="fullNameError"></div>
            </div>
 
-
            <div class="form-group">
                <label for="email">Email:</label>
                <input type="email" id="email" name="email">
                <div class="error-message" id="emailError"></div>
            </div>
-
 
            <div class="form-group">
                <label for="password">Password:</label>
@@ -166,20 +144,17 @@
                <div class="error-message" id="passwordError"></div>
            </div>
 
-
            <div class="form-group">
                <label for="confirmPassword">Confirm Password:</label>
                <input type="password" id="confirmPassword" name="confirmPassword">
                <div class="error-message" id="confirmPasswordError"></div>
            </div>
 
-
            <div class="form-group">
                <label for="age">Age:</label>
                <input type="number" id="age" name="age">
                <div class="error-message" id="ageError"></div>
            </div>
-
 
            <div class="form-group">
                <label for="country">Country:</label>
@@ -195,24 +170,21 @@
                <div class="error-message" id="countryError"></div>
            </div>
 
-
            <div class="form-group checkbox-group">
                <input type="checkbox" id="terms" name="terms">
                <label for="terms">I agree to the Terms and Conditions</label>
-               <div class="error-message" id="termsError"></div>
            </div>
-
+           <div class="error-message" id="termsError"></div>
 
            <button type="submit">Register</button>
        </form>
    </div>
 
-
    <script>
        function validateForm() {
            let isValid = true;
 
-
+           // Reset error messages
            document.getElementById('fullNameError').textContent = '';
            document.getElementById('emailError').textContent = '';
            document.getElementById('passwordError').textContent = '';
@@ -221,7 +193,7 @@
            document.getElementById('countryError').textContent = '';
            document.getElementById('termsError').textContent = '';
 
-
+           // Get field values
            const fullName = document.getElementById('fullName').value.trim();
            const email = document.getElementById('email').value.trim();
            const password = document.getElementById('password').value;
@@ -230,12 +202,11 @@
            const country = document.getElementById('country').value;
            const termsAccepted = document.getElementById('terms').checked;
 
-
+           // Validation Logic
            if (fullName === '') {
                document.getElementById('fullNameError').textContent = 'Full Name is required.';
                isValid = false;
            }
-
 
            if (email === '') {
                document.getElementById('emailError').textContent = 'Email is required.';
@@ -245,7 +216,6 @@
                isValid = false;
            }
 
-
            if (password === '') {
                document.getElementById('passwordError').textContent = 'Password is required.';
                isValid = false;
@@ -254,7 +224,6 @@
                isValid = false;
            }
 
-
            if (confirmPassword === '') {
                document.getElementById('confirmPasswordError').textContent = 'Confirm Password is required.';
                isValid = false;
@@ -262,7 +231,6 @@
                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
                isValid = false;
            }
-
 
            if (age === '') {
                document.getElementById('ageError').textContent = 'Age is required.';
@@ -275,22 +243,25 @@
                }
            }
 
-
            if (country === '') {
                document.getElementById('countryError').textContent = 'Please select your country.';
                isValid = false;
            }
-
 
            if (!termsAccepted) {
                document.getElementById('termsError').textContent = 'You must agree to the Terms and Conditions.';
                isValid = false;
            }
 
+           // REDIRECT LOGIC
+           if (isValid) {
+               // This sends the user to the success page
+               window.location.href = "/home/vbit/05O0/Week-3/Week-1/sucess.html";
+           }
 
-           return isValid;
+           // Return false to prevent actual form submission/page reload
+           return false;
        }
-
 
        function isValidEmail(email) {
            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
